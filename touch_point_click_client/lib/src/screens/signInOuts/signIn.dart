@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:country_calling_code_picker/country.dart';
+import 'package:touch_point_click_client/src/appUsedStylesSizes/appColors.dart';
 
 import 'package:touch_point_click_client/src/appUsedStylesSizes/appIconsUsed.dart';
 import 'package:touch_point_click_client/src/appUsedStylesSizes/appTextStyles.dart';
@@ -52,30 +53,28 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     return BaseWidget.clipedBase(
-      Container(
-        //color: Colors.white,
-        child: ListView(
-          children: [
-            headerText("Email Address"),
-            Padding(
-              padding: padding,
-              child: UtilWidget.txtInputText(
-                  "info@tpclick.co.za",
-                  AppIconsUsed.emailIcon,
-                  emailController,
-                  TextInputType.emailAddress,
-                  true),
-            ),
-            headerText("Password"),
-            Padding(
-              padding: padding,
-              child: PasswordTextEdit(signInPasswordController),
-            ),
-            forgotPassword(),
-            signInButton()
-          ],
-        ),
+      ListView(
+        children: [
+          headerText("Email Address"),
+          Padding(
+            padding: padding,
+            child: UtilWidget.txtInputText(
+                "info@tpclick.co.za",
+                AppIconsUsed.emailIcon,
+                emailController,
+                TextInputType.emailAddress,
+                true),
+          ),
+          headerText("Password"),
+          Padding(
+            padding: padding,
+            child: PasswordTextEdit(signInPasswordController),
+          ),
+          forgotPassword(),
+          signInButton()
+        ],
       ),
+      AppColors.appBackgroundColor,
     );
   }
 
@@ -134,7 +133,7 @@ class _SignInState extends State<SignIn> {
         height: 50,
         child: ElevatedButton(
           onPressed: () {
-            Navigator.push(
+            Navigator.pushReplacement(
               context,
               MaterialPageRoute(
                 builder: (context) => Home(),

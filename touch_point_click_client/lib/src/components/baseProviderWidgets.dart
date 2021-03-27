@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 //import 'package:touch_point_click/src/screens/chooseServices.dart';
 import 'package:touch_point_click_client/src/appUsedStylesSizes/appIconsUsed.dart';
+import 'package:touch_point_click_client/src/models/userServiceProvider.dart';
+import 'package:touch_point_click_client/src/screens/providerServices.dart';
 
 class BaseProviderWidgets {
   static Widget companyDisplay(
     BuildContext context,
-    String imageLink,
-    String companyName,
-    String companyCategory,
+    UserServiceProvider userServiceProvider,
     Column companyDetails,
   ) {
     return Padding(
@@ -18,7 +18,9 @@ class BaseProviderWidgets {
         child: FittedBox(
           child: InkWell(
             onTap: () => companyClicked(
-                context, companyName, companyCategory, imageLink),
+              context,
+              userServiceProvider,
+            ),
             splashColor: Color(0x802196F3),
             borderRadius: BorderRadius.circular(15.0),
             child: Material(
@@ -37,7 +39,7 @@ class BaseProviderWidgets {
                       child: Image(
                         fit: BoxFit.fill,
                         alignment: Alignment.topLeft,
-                        image: AssetImage(imageLink),
+                        image: AssetImage(userServiceProvider.imageLink),
                       ),
                     ),
                   ),
@@ -56,18 +58,15 @@ class BaseProviderWidgets {
     );
   }
 
-  static void companyClicked(BuildContext context, String companyName,
-      String companyCategory, String imageLink) {
-    /*Navigator.push(
+  static void companyClicked(
+      BuildContext context, UserServiceProvider userServiceProvider) {
+    Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => ChooseServices(
-          companyName: companyName,
-          categoryName: companyCategory,
-          imageLink: imageLink,
-        ),
+        builder: (context) => ProviderServices(
+            userServiceProvider, "3427 K Section, Botshabelo, 9781"),
       ),
-    );*/
+    );
   }
 
   static Widget companyDescription(String companyDesc, int expandTextLines) {

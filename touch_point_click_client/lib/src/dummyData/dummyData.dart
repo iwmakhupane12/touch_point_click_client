@@ -1,14 +1,18 @@
 import 'package:touch_point_click_client/src/components/categoryWidget.dart';
 import 'package:touch_point_click_client/src/components/providerWidget.dart';
+import 'package:touch_point_click_client/src/models/providerService.dart';
 import 'package:touch_point_click_client/src/models/userServiceProvider.dart';
 
 class DummyData {
   List<CategoryWidget> categoryList = [];
   List<ProviderWidget> providerList = [];
+  List<UserServiceProvider> userServiceProvider = [];
+  List<ProviderService> userServiceList = [];
 
   DummyData() {
-    setCategories();
     setFavourites();
+    setCategories();
+    setScheduleListData();
   }
 
   void setFavourites() {
@@ -132,18 +136,23 @@ class DummyData {
     userServiceProvider12.imageLink =
         "assets/images/companyLogos/beauty_parlour.png";
 
-    providerList.add(ProviderWidget(userServiceProvider1, userLocation));
-    providerList.add(ProviderWidget(userServiceProvider2, userLocation));
-    providerList.add(ProviderWidget(userServiceProvider3, userLocation));
-    providerList.add(ProviderWidget(userServiceProvider4, userLocation));
-    providerList.add(ProviderWidget(userServiceProvider5, userLocation));
-    providerList.add(ProviderWidget(userServiceProvider6, userLocation));
-    providerList.add(ProviderWidget(userServiceProvider7, userLocation));
-    providerList.add(ProviderWidget(userServiceProvider8, userLocation));
-    providerList.add(ProviderWidget(userServiceProvider9, userLocation));
-    providerList.add(ProviderWidget(userServiceProvider10, userLocation));
-    providerList.add(ProviderWidget(userServiceProvider11, userLocation));
-    providerList.add(ProviderWidget(userServiceProvider12, userLocation));
+    userServiceProvider.add(userServiceProvider1);
+    userServiceProvider.add(userServiceProvider2);
+    userServiceProvider.add(userServiceProvider3);
+    userServiceProvider.add(userServiceProvider4);
+    userServiceProvider.add(userServiceProvider5);
+    userServiceProvider.add(userServiceProvider6);
+    userServiceProvider.add(userServiceProvider7);
+    userServiceProvider.add(userServiceProvider8);
+    userServiceProvider.add(userServiceProvider9);
+    userServiceProvider.add(userServiceProvider10);
+    userServiceProvider.add(userServiceProvider11);
+    userServiceProvider.add(userServiceProvider12);
+
+    for (int i = 0; i < userServiceProvider.length; i++) {
+      providerList
+          .add(ProviderWidget(userServiceProvider.elementAt(i), userLocation));
+    }
   }
 
   void setCategories() {
@@ -173,29 +182,141 @@ class DummyData {
     plumber = "assets/images/categoryIcons/plumber.png";
     chef = "assets/images/categoryIcons/private_chef.png";
 
-    categoryList.add(CategoryWidget(electrician, "Electrician", 0));
-    categoryList.add(CategoryWidget(beauty, "Hair & Beauty", 1));
-    categoryList.add(CategoryWidget(breakdown, "Breakdown", 2));
-    categoryList.add(CategoryWidget(spa, "Day Spa", 3));
-    categoryList.add(CategoryWidget(domesticService, "Domestic Services", 4));
-    categoryList.add(CategoryWidget(gym, "Fitness & Training", 5));
-    categoryList.add(CategoryWidget(medical, "Medical Practitioner", 6));
-    categoryList.add(CategoryWidget(carwash, "Mobile Carwash", 7));
-    categoryList.add(CategoryWidget(plumber, "Plumber", 8));
-    categoryList.add(CategoryWidget(tutor, "Tutors", 9));
-    categoryList.add(CategoryWidget(chef, "Private Chef", 10));
-    categoryList.add(CategoryWidget(mechanic, "Mechanic", 11));
-    categoryList.add(CategoryWidget(electrician, "Electrician", 12));
-    categoryList.add(CategoryWidget(beauty, "Hair & Beauty", 13));
-    categoryList.add(CategoryWidget(breakdown, "Breakdown", 14));
-    categoryList.add(CategoryWidget(spa, "Day Spa", 15));
-    categoryList.add(CategoryWidget(domesticService, "Domestic Services", 16));
-    categoryList.add(CategoryWidget(gym, "Fitness & Training", 17));
-    categoryList.add(CategoryWidget(medical, "Medical Practitioner", 18));
-    categoryList.add(CategoryWidget(carwash, "Mobile Carwash", 19));
-    categoryList.add(CategoryWidget(plumber, "Plumber", 20));
-    categoryList.add(CategoryWidget(tutor, "Tutors", 21));
-    categoryList.add(CategoryWidget(chef, "Private Chef", 22));
-    categoryList.add(CategoryWidget(mechanic, "Mechanic", 23));
+    categoryList.add(
+        CategoryWidget(userServiceProvider, electrician, "Electrician", 0));
+    categoryList
+        .add(CategoryWidget(userServiceProvider, beauty, "Hair & Beauty", 1));
+    categoryList
+        .add(CategoryWidget(userServiceProvider, breakdown, "Breakdown", 2));
+    categoryList.add(CategoryWidget(userServiceProvider, spa, "Day Spa", 3));
+    categoryList.add(CategoryWidget(
+        userServiceProvider, domesticService, "Domestic Services", 4));
+    categoryList
+        .add(CategoryWidget(userServiceProvider, gym, "Fitness & Training", 5));
+    categoryList.add(CategoryWidget(
+        userServiceProvider, medical, "Medical Practitioner", 6));
+    categoryList
+        .add(CategoryWidget(userServiceProvider, carwash, "Mobile Carwash", 7));
+    categoryList
+        .add(CategoryWidget(userServiceProvider, plumber, "Plumber", 8));
+    categoryList.add(CategoryWidget(userServiceProvider, tutor, "Tutors", 9));
+    categoryList
+        .add(CategoryWidget(userServiceProvider, chef, "Private Chef", 10));
+    categoryList
+        .add(CategoryWidget(userServiceProvider, mechanic, "Mechanic", 11));
+    categoryList.add(
+        CategoryWidget(userServiceProvider, electrician, "Electrician", 12));
+    categoryList
+        .add(CategoryWidget(userServiceProvider, beauty, "Hair & Beauty", 13));
+    categoryList
+        .add(CategoryWidget(userServiceProvider, breakdown, "Breakdown", 14));
+    categoryList.add(CategoryWidget(userServiceProvider, spa, "Day Spa", 15));
+    categoryList.add(CategoryWidget(
+        userServiceProvider, domesticService, "Domestic Services", 16));
+    categoryList.add(
+        CategoryWidget(userServiceProvider, gym, "Fitness & Training", 17));
+    categoryList.add(CategoryWidget(
+        userServiceProvider, medical, "Medical Practitioner", 18));
+    categoryList.add(
+        CategoryWidget(userServiceProvider, carwash, "Mobile Carwash", 19));
+    categoryList
+        .add(CategoryWidget(userServiceProvider, plumber, "Plumber", 20));
+    categoryList.add(CategoryWidget(userServiceProvider, tutor, "Tutors", 21));
+    categoryList
+        .add(CategoryWidget(userServiceProvider, chef, "Private Chef", 22));
+    categoryList
+        .add(CategoryWidget(userServiceProvider, mechanic, "Mechanic", 23));
+  }
+
+  //initialize tutor services
+  void setScheduleListData() {
+    //Category 1 init
+    ProviderService providerService1 = ProviderService();
+    providerService1.id = "1";
+    providerService1.category = "Sciences";
+    providerService1.serviceDesc = "Mathematics";
+    providerService1.price = "200";
+    providerService1.estTime = "60";
+    providerService1.chargeType = "Per Hour";
+    providerService1.checked = false;
+
+    ProviderService providerService2 = ProviderService();
+    providerService2.id = "2";
+    providerService2.category = "Sciences";
+    providerService2.serviceDesc = "Physical Sciences";
+    providerService2.price = "180";
+    providerService2.estTime = "60";
+    providerService2.chargeType = "Per Hour";
+    providerService2.checked = false;
+
+    ProviderService providerService3 = ProviderService();
+    providerService3.id = "3";
+    providerService3.category = "Sciences";
+    providerService3.serviceDesc = "Life Scieces";
+    providerService3.price = "150";
+    providerService3.estTime = "60";
+    providerService3.chargeType = "Per Hour";
+    providerService3.checked = false;
+
+    ProviderService providerService4 = ProviderService();
+    providerService4.id = "4";
+    providerService4.category = "Sciences";
+    providerService4.serviceDesc = "Geography";
+    providerService4.price = "150";
+    providerService4.estTime = "60";
+    providerService4.chargeType = "Per Hour";
+    providerService4.checked = false;
+
+    //Category 2 init
+    ProviderService providerService5 = ProviderService();
+    providerService5.id = "5";
+    providerService5.category = "Commerce";
+    providerService5.serviceDesc = "Accounting";
+    providerService5.price = "200";
+    providerService5.estTime = "60";
+    providerService5.chargeType = "Per Hour";
+    providerService5.checked = false;
+
+    ProviderService providerService6 = ProviderService();
+    providerService6.id = "6";
+    providerService6.category = "Commerce";
+    providerService6.serviceDesc = "Business Studies";
+    providerService6.price = "150";
+    providerService6.estTime = "60";
+    providerService6.chargeType = "Per Hour";
+    providerService6.checked = false;
+
+    ProviderService providerService7 = ProviderService();
+    providerService7.id = "7";
+    providerService7.category = "Commerce";
+    providerService7.serviceDesc = "Economics";
+    providerService7.price = "150";
+    providerService7.estTime = "60";
+    providerService7.chargeType = "Per Hour";
+    providerService7.checked = false;
+
+    //Category 3 init
+    ProviderService providerService8 = ProviderService();
+    providerService8.id = "8";
+    providerService8.category = "Histories";
+    providerService8.serviceDesc = "History";
+    providerService8.price = "150";
+    providerService8.estTime = "60";
+    providerService8.chargeType = "Per Hour";
+    providerService8.checked = false;
+
+    //Category 1
+    userServiceList.add(providerService1);
+    userServiceList.add(providerService2);
+    userServiceList.add(providerService3);
+    userServiceList.add(providerService4);
+
+    //Category 2
+    userServiceList.add(providerService5);
+    userServiceList.add(providerService6);
+    userServiceList.add(providerService7);
+
+    //Category 3
+    userServiceList.add(providerService8);
   }
 }

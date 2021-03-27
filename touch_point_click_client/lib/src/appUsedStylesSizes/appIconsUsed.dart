@@ -214,4 +214,6 @@ class AppIconsUsed {
     size: 24,
     color: Colors.black,
   );
+
+  static Icon searchIcon = Icon(Icons.search, color: Colors.black);
 }

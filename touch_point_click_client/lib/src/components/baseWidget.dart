@@ -8,7 +8,7 @@ import 'package:touch_point_click_client/src/appUsedStylesSizes/appTextStyles.da
 import 'package:touch_point_click_client/src/screens/home.dart';
 
 class BaseWidget {
-  static Widget clipedBase(Widget display) {
+  static Widget clipedBase(Widget display, Color backgroundColor) {
     /*return UtilWidget.clipRectForApp(
       Container(
         color: Colors.white, //AppColors.appBackgroundColor,
@@ -16,30 +16,38 @@ class BaseWidget {
       ),
     );*/
     return Container(
-      color: Colors.white, //AppColors.appBackgroundColor,
+      color: backgroundColor, //AppColors.appBackgroundColor,
       child: display,
     );
   }
 
   static Widget defaultScreen(
       BuildContext context,
+      Key scaffoldKey,
       Widget displayBody,
       Widget bottomWidget,
       String appBarTitle,
       FloatingActionButton floatingActionButton,
-      List<Widget> actions) {
+      Widget bottomNavigationBar,
+      List<Widget> actions,
+      bool toHome,
+      Color appBackgroundColor) {
+    bool _toHome = toHome;
     return Scaffold(
+      key: scaffoldKey,
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
-        elevation: 0.0,
+        elevation: 2.0,
         leading: InkWell(
-          onTap: () => Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: (context) => Home(),
-            ),
-          ),
+          onTap: () => _toHome
+              ? Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Home(),
+                  ),
+                )
+              : Navigator.pop(context),
           child: Icon(
             Icons.arrow_back_ios_rounded,
             color: Colors.black,
@@ -53,10 +61,9 @@ class BaseWidget {
         bottom: bottomWidget,
         actions: actions,
       ),
-      body: BaseWidget.clipedBase(
-        displayBody,
-      ),
+      body: BaseWidget.clipedBase(displayBody, appBackgroundColor),
       floatingActionButton: floatingActionButton,
+      bottomNavigationBar: bottomNavigationBar,
     );
   }
 

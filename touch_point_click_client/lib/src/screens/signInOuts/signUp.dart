@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:country_calling_code_picker/picker.dart';
 import 'package:country_calling_code_picker/country.dart';
+import 'package:touch_point_click_client/src/appUsedStylesSizes/appColors.dart';
 
 import 'package:touch_point_click_client/src/appUsedStylesSizes/appIconsUsed.dart';
 import 'package:touch_point_click_client/src/appUsedStylesSizes/appTextStyles.dart';
@@ -116,6 +117,7 @@ class _SignUpState extends State<SignUp> {
           signUpDisclaimer(),
         ],
       ),
+      AppColors.appBackgroundColor,
     );
   }
 

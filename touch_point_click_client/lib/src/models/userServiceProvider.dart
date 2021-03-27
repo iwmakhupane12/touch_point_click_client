@@ -11,6 +11,7 @@ class UserServiceProvider {
       numRated,
       description,
       regDateTime,
-      imageLink;
+      imageLink,
+      clickedCategory;
   List<String> categories;
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:country_calling_code_picker/picker.dart';
+import 'package:touch_point_click_client/src/appUsedStylesSizes/appColors.dart';
 
 import 'package:touch_point_click_client/src/appUsedStylesSizes/appIconsUsed.dart';
 import 'package:touch_point_click_client/src/appUsedStylesSizes/appTextStyles.dart';
@@ -55,38 +56,38 @@ class _ForgotPasswordState extends State<ForgotPassword> {
         elevation: 0.0,
       ),
       body: BaseWidget.clipedBase(
-        ListView(
-          children: [
-            headerNote(
-                "Use either your Email Address or Phone Number to reset password."),
-            SizedBox(height: 20),
-            headerText("Email Address"),
-            Padding(
-              padding: padding,
-              child: UtilWidget.txtInputText(
-                  "info@tpclick.co.za",
-                  AppIconsUsed.emailIcon,
-                  emailController,
-                  TextInputType.emailAddress,
-                  true),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 20.0, bottom: 10.0),
-              child: Align(
-                alignment: Alignment.center,
-                child:
-                    Text("OR", style: AppTextStyles.normalBlack(normal, black)),
+          ListView(
+            children: [
+              headerNote(
+                  "Use either your Email Address or Phone Number to reset password."),
+              SizedBox(height: 20),
+              headerText("Email Address"),
+              Padding(
+                padding: padding,
+                child: UtilWidget.txtInputText(
+                    "info@tpclick.co.za",
+                    AppIconsUsed.emailIcon,
+                    emailController,
+                    TextInputType.emailAddress,
+                    true),
               ),
-            ),
-            headerText("Phone Number"),
-            Padding(
-              padding: padding,
-              child: phoneNumEditText,
-            ),
-            requestOTPButton(),
-          ],
-        ),
-      ),
+              Padding(
+                padding: const EdgeInsets.only(top: 20.0, bottom: 10.0),
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Text("OR",
+                      style: AppTextStyles.normalBlack(normal, black)),
+                ),
+              ),
+              headerText("Phone Number"),
+              Padding(
+                padding: padding,
+                child: phoneNumEditText,
+              ),
+              requestOTPButton(),
+            ],
+          ),
+          AppColors.appBackgroundColor),
     );
   }
 

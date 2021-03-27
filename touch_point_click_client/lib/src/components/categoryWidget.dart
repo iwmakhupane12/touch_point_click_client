@@ -1,12 +1,23 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:touch_point_click_client/src/appUsedStylesSizes/appTextStyles.dart';
+import 'package:touch_point_click_client/src/components/utilWidget.dart';
+import 'package:touch_point_click_client/src/models/userServiceProvider.dart';
+import 'package:touch_point_click_client/src/screens/categoryProvider.dart';
 
+//Class to view a category
+
+// ignore: must_be_immutable
 class CategoryWidget extends StatelessWidget {
   final String categoryImageLink;
   final String categoryCaption;
   final int index;
+  final List<UserServiceProvider> userServiceProvider;
+  List<UserServiceProvider> tempUserServiceProvider = [];
 
-  CategoryWidget(this.categoryImageLink, this.categoryCaption, this.index);
+  CategoryWidget(this.userServiceProvider, this.categoryImageLink,
+      this.categoryCaption, this.index);
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -21,6 +32,34 @@ class CategoryWidget extends StatelessWidget {
               ),
             ),
           );*/
+          UtilWidget.showLoadingDialog(context, "");
+          for (int i = 0; i < userServiceProvider.length; i++) {
+            for (int j = 0;
+                j < userServiceProvider.elementAt(i).categories.length;
+                j++) {
+              if (userServiceProvider.elementAt(i).categories.elementAt(j) ==
+                  categoryCaption) {
+                //Setting the service provider category
+                userServiceProvider.elementAt(i).clickedCategory =
+                    categoryCaption;
+                //adding the service provider into the list of that category
+                tempUserServiceProvider.add(userServiceProvider.elementAt(i));
+              }
+            }
+          }
+          Timer(
+            Duration(seconds: 2),
+            () {
+              Navigator.pop(context); //Remove loaidng pop
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) =>
+                      CategoryProvider(tempUserServiceProvider),
+                ),
+              );
+            },
+          );
         },
         borderRadius: BorderRadius.circular(10),
         child: Padding(

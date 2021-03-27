@@ -41,8 +41,8 @@ class UtilWidget {
       builder: (BuildContext context) {
         return AlertDialog(
           backgroundColor: Colors.white,
-          content: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+          content: Wrap(
+            alignment: WrapAlignment.center,
             children: [
               CircularProgressIndicator(
                 strokeWidth: 4,
@@ -101,11 +101,11 @@ class UtilWidget {
   //Text("Note: If you do not have a schedule set, clients will not be able to request your services."),
 
   //*************************StickyHeader***********************//
-  static Widget stickyHeader(String header, Widget content) {
+  static Widget stickyHeader(String header, Widget content, Color headerColor) {
     return StickyHeader(
       header: Container(
         height: 40.0,
-        color: Colors.white, //AppColors.appBackgroundColor,
+        color: headerColor, //AppColors.appBackgroundColor,
         padding: EdgeInsets.symmetric(horizontal: 16.0),
         alignment: Alignment.centerLeft,
         child: Text(
@@ -167,6 +167,28 @@ class UtilWidget {
     );
   }
 
+  static Widget txtInputTextMaxLines(
+      String txtHint,
+      Icon txtIcons,
+      TextEditingController controller,
+      TextInputType textInputType,
+      bool enabled,
+      int maxLines) {
+    return Card(
+      elevation: 10.0,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
+      child: TextField(
+        controller: controller,
+        autofocus: true,
+        enabled: enabled,
+        maxLines: maxLines,
+        keyboardType: textInputType,
+        style: TextStyle(fontSize: 20, height: 1.0),
+        decoration: UtilWidget.txtInputDecor(txtHint, txtIcons, null),
+      ),
+    );
+  }
+
   static InputDecoration txtInputDecor(
       String txtHintText, Icon txtPrefixIcon, IconButton txtSuffixIconButton) {
     return InputDecoration(
@@ -199,6 +221,7 @@ class UtilWidget {
           backgroundColor: white,
           iconTheme: IconThemeData(color: black),
           automaticallyImplyLeading: false,
+          elevation: 2.0,
           title: AppTextStyles.normalText(heading, normal, black, 1),
           actions: [
             Padding(
@@ -215,4 +238,31 @@ class UtilWidget {
       ),
     );
   }
+
+  static bottomSheetStickerContent(BuildContext context, Widget content) {
+    return StickyHeader(
+      header: Container(
+          color: Colors.transparent, // AppColors.appBackgroundColor,
+          height: 50.0,
+          padding: EdgeInsets.symmetric(horizontal: 16.0),
+          alignment: Alignment.centerRight,
+          child: Padding(
+            padding: const EdgeInsets.only(top: 8.0),
+            child: FloatingActionButton(
+              onPressed: () => Navigator.of(context).pop(),
+              backgroundColor: white,
+              child: Icon(Icons.close, color: black, size: 30),
+            ),
+          )),
+      content: content,
+    );
+  }
+
+  /*Card(
+            child: IconButton(
+              icon: Icon(Icons.close),
+              iconSize: 30,
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+          )*/
 }

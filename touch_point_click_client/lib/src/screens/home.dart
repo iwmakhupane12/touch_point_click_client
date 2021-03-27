@@ -13,6 +13,7 @@ import 'package:touch_point_click_client/src/components/providerWidget.dart';
 import 'package:touch_point_click_client/src/components/utilWidget.dart';
 
 import 'package:touch_point_click_client/src/dummyData/dummyData.dart';
+import 'package:touch_point_click_client/src/screens/categoryProvider.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -64,7 +65,7 @@ class _HomeState extends State<Home> {
 
   Widget screenBody() {
     return BaseWidget.clipedBase(
-      Material(
+        Material(
           color: Colors.transparent,
           child: ListView(
             children: [
@@ -73,8 +74,9 @@ class _HomeState extends State<Home> {
               categoryWidgets(),
               favouriteWidgets()
             ],
-          )),
-    );
+          ),
+        ),
+        white);
   }
 
   //Slideshow
@@ -92,7 +94,7 @@ class _HomeState extends State<Home> {
           //Image.network('https://bit.ly/3lvdFNr'),
           //Image.network('https://bit.ly/39CaMYL')
         ],
-        autoplay: false,
+        autoplay: true,
         animationCurve: Curves.fastOutSlowIn,
         animationDuration: Duration(milliseconds: 1000),
         dotSize: 4.0,
@@ -200,7 +202,7 @@ class _HomeState extends State<Home> {
         backgroundColor: AppColors.appBackgroundColor,
         radius: 20,
         child: IconButton(
-          icon: AppIconsUsed.notificationIcon,
+          icon: AppIconsUsed.searchIcon,
           onPressed: () {},
         ),
       ),
@@ -211,11 +213,20 @@ class _HomeState extends State<Home> {
     return Material(
       color: Colors.transparent,
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          /*Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => CategoryProvider(),
+            ),
+          );*/
+        },
         child: ListTile(
           title: Row(children: [
             AppIconsUsed.locationPin,
-            AppTextStyles.normalSmallText("Current Location", normal, black, 1),
+            Expanded(
+                child: AppTextStyles.normalSmallText(
+                    "Current Location", normal, black, 1)),
           ]),
           subtitle: Padding(
             padding: const EdgeInsets.only(left: 4.0),
