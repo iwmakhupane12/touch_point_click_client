@@ -72,7 +72,7 @@ flutter:
   #Category images
     - assets/images/categoryIcons/beauty_parlour.png
     - assets/images/categoryIcons/electrician.png
-    - assets/images/categoryIcons/breakdown.png
+    - assets/images/categoryIcons/breakdown.jpeg
     - assets/images/categoryIcons/day_spa.png
     - assets/images/categoryIcons/domestic_services.png
     - assets/images/categoryIcons/fitness_specialists.png

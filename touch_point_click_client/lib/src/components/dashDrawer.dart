@@ -38,7 +38,7 @@ class DashDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-          child: Drawer(
+      child: Drawer(
         child: ListView.builder(
           itemCount: 6,
           itemBuilder: (BuildContext context, int index) {
@@ -146,12 +146,12 @@ class DashDrawer extends StatelessWidget {
         // ignore: missing_return
         builder: (context) {
           switch (btnClicked) {
-            case "Profile":
+            case "My Profile":
               {
                 return Profile();
               }
               break;
-            case "Requests":
+            case "My Requests":
               {
                 return Requests();
               }

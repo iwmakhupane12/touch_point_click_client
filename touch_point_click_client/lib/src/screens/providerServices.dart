@@ -90,7 +90,8 @@ class _ProviderServicesState extends State<ProviderServices> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => ConfirmRequest(),
+        builder: (context) =>
+            ConfirmRequest(userServiceProvider, sendCheckedToConfirm()),
       ),
     );
   }
@@ -159,7 +160,7 @@ class _ProviderServicesState extends State<ProviderServices> {
     );
   }
 
-  Widget service(int serviceListIndex, String serviceDesc, String price,
+  Widget service(int serviceListIndex, String serviceDesc, double price,
       String chargeType) {
     int index = serviceListIndex;
     return UtilWidget.baseCard(
@@ -200,5 +201,15 @@ class _ProviderServicesState extends State<ProviderServices> {
             !userServiceList.elementAt(index).checked;
       },
     );
+  }
+
+  List<ProviderService> sendCheckedToConfirm() {
+    List<ProviderService> tempList = [];
+    for (int i = 0; i < userServiceList.length; i++) {
+      if (userServiceList.elementAt(i).checked == true) {
+        tempList.add(userServiceList.elementAt(i));
+      }
+    }
+    return tempList;
   }
 }

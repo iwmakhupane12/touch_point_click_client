@@ -24,14 +24,6 @@ class CategoryWidget extends StatelessWidget {
       color: Colors.transparent,
       child: InkWell(
         onTap: () {
-          /*Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => CategoryCompanies(
-                appBarTitle: imageCaption,
-              ),
-            ),
-          );*/
           UtilWidget.showLoadingDialog(context, "");
           for (int i = 0; i < userServiceProvider.length; i++) {
             for (int j = 0;
@@ -71,8 +63,8 @@ class CategoryWidget extends StatelessWidget {
               children: <Widget>[
                 SizedBox(height: 5.0), //Space
                 Container(
-                  height: 50,
-                  width: 50,
+                  height: 60,
+                  width: 60,
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(15.0),
                     child: Image.asset(

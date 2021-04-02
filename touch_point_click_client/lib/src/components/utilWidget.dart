@@ -215,26 +215,30 @@ class UtilWidget {
   static bottomSheetHeaderContent(
       BuildContext context, String heading, Widget content) {
     return Container(
-      child: Scaffold(
-        backgroundColor: white,
-        appBar: AppBar(
+      child: ClipRRect(
+        borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(25), topRight: Radius.circular(25)),
+        child: Scaffold(
           backgroundColor: white,
-          iconTheme: IconThemeData(color: black),
-          automaticallyImplyLeading: false,
-          elevation: 2.0,
-          title: AppTextStyles.normalText(heading, normal, black, 1),
-          actions: [
-            Padding(
-              padding: const EdgeInsets.only(right: 8.0),
-              child: IconButton(
-                icon: Icon(Icons.close),
-                iconSize: 30,
-                onPressed: () => Navigator.of(context).pop(),
+          appBar: AppBar(
+            backgroundColor: white,
+            iconTheme: IconThemeData(color: black),
+            automaticallyImplyLeading: false,
+            elevation: 0.0,
+            title: AppTextStyles.normalText(heading, normal, black, 1),
+            actions: [
+              Padding(
+                padding: const EdgeInsets.only(right: 8.0),
+                child: IconButton(
+                  icon: Icon(Icons.close),
+                  iconSize: 30,
+                  onPressed: () => Navigator.of(context).pop(),
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
+          body: content,
         ),
-        body: content,
       ),
     );
   }

@@ -7,15 +7,25 @@ import 'package:touch_point_click_client/src/appUsedStylesSizes/appTextStyles.da
 import 'package:touch_point_click_client/src/components/baseWidget.dart';
 import 'package:touch_point_click_client/src/components/utilWidget.dart';
 import 'package:touch_point_click_client/src/components/pickDateTime.dart';
+import 'package:touch_point_click_client/src/models/userServiceProvider.dart';
+import 'package:touch_point_click_client/src/models/providerService.dart';
 import 'package:touch_point_click_client/src/screens/home.dart';
 
 class ConfirmRequest extends StatefulWidget {
+  final UserServiceProvider userServiceProvider;
+  final List<ProviderService> sendCheckedToConfirm;
+
+  ConfirmRequest(this.userServiceProvider, this.sendCheckedToConfirm);
+
   @override
   _ConfirmRequestState createState() => _ConfirmRequestState();
 }
 
 class _ConfirmRequestState extends State<ConfirmRequest> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  UserServiceProvider _userServiceProvider;
+  List<ProviderService> _services;
 
   TextEditingController _editingController, _serviceNoteController;
 
@@ -29,6 +39,8 @@ class _ConfirmRequestState extends State<ConfirmRequest> {
     pickDateTime = PickDateTime();
     _editingController = TextEditingController();
     _serviceNoteController = TextEditingController();
+    _userServiceProvider = widget.userServiceProvider;
+    _services = widget.sendCheckedToConfirm;
   }
 
   @override
@@ -45,7 +57,7 @@ class _ConfirmRequestState extends State<ConfirmRequest> {
         _scaffoldKey,
         displayBody(),
         null,
-        "Company Name with subtitle of category",
+        _userServiceProvider.name,
         null,
         null,
         null,
@@ -231,10 +243,42 @@ class _ConfirmRequestState extends State<ConfirmRequest> {
       null,
       MediaQuery.of(context).size.width,
       Column(
-        children: [Text("Hello")],
+        children: [
+          headers(),
+          Divider(),
+          servicesColumn(),
+        ],
       ),
     );
   }
+
+  Widget servicesColumn() {
+    List<Widget> tempServices = [];
+    for (int i = 0; i < _services.length; i++) {
+      tempServices.add(clickedService(
+          1, _services.elementAt(i).serviceDesc, _services.elementAt(i).price));
+    }
+    return Column(children: tempServices);
+  }
+
+  Widget headers() {
+    return ListTile(
+      leading: AppTextStyles.normalText("Qty", bold, black, 2),
+      title: AppTextStyles.normalText("Service", bold, black, 2),
+      trailing: AppTextStyles.normalText("Price", bold, black, 2),
+    );
+  }
+
+  Widget clickedService(int qty, String service, double price) {
+    return ListTile(
+      leading: AppTextStyles.normalText("$qty", normal, black, 1),
+      title: AppTextStyles.normalText("$service", normal, black, 2),
+      subtitle: AppTextStyles.normalSmallText("Edit", normal, Colors.blue, 1),
+      trailing: AppTextStyles.normalText("R$price", normal, black, 2),
+    );
+  }
+
+  //**********Lower Details***********//
 
   Widget lowerDetails() {
     return UtilWidget.baseCard(
@@ -278,13 +322,13 @@ class _ConfirmRequestState extends State<ConfirmRequest> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        amountText(": R550", false),
-        amountText(": R5", false),
-        amountText(": R20", false),
-        amountText(": R0", false),
+        amountText("R550", false),
+        amountText("R5", false),
+        amountText("R20", false),
+        amountText("R0", false),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 6.0),
-          child: amountText(": R575", true),
+          child: amountText("R575", true),
         ),
       ],
     );

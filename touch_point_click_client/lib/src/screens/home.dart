@@ -38,7 +38,6 @@ class _HomeState extends State<Home> {
     DummyData dummyData = DummyData();
     categoryList = dummyData.categoryList;
     providerList = dummyData.providerList;
-    print(providerList.length);
     setHomeCats();
     setBottomSheetCats();
     //setFavourites();

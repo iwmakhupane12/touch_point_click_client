@@ -171,7 +171,7 @@ class DummyData {
 
     electrician = "assets/images/categoryIcons/electrician.png";
     beauty = "assets/images/categoryIcons/beauty_parlour.png";
-    breakdown = "assets/images/categoryIcons/breakdown.png";
+    breakdown = "assets/images/categoryIcons/breakdown.jpeg";
     spa = "assets/images/categoryIcons/day_spa.png";
     domesticService = "assets/images/categoryIcons/domestic_services.png";
     gym = "assets/images/categoryIcons/fitness_specialists.png";
@@ -235,7 +235,7 @@ class DummyData {
     providerService1.id = "1";
     providerService1.category = "Sciences";
     providerService1.serviceDesc = "Mathematics";
-    providerService1.price = "200";
+    providerService1.price = 200;
     providerService1.estTime = "60";
     providerService1.chargeType = "Per Hour";
     providerService1.checked = false;
@@ -244,7 +244,7 @@ class DummyData {
     providerService2.id = "2";
     providerService2.category = "Sciences";
     providerService2.serviceDesc = "Physical Sciences";
-    providerService2.price = "180";
+    providerService2.price = 180;
     providerService2.estTime = "60";
     providerService2.chargeType = "Per Hour";
     providerService2.checked = false;
@@ -253,7 +253,7 @@ class DummyData {
     providerService3.id = "3";
     providerService3.category = "Sciences";
     providerService3.serviceDesc = "Life Scieces";
-    providerService3.price = "150";
+    providerService3.price = 150;
     providerService3.estTime = "60";
     providerService3.chargeType = "Per Hour";
     providerService3.checked = false;
@@ -262,7 +262,7 @@ class DummyData {
     providerService4.id = "4";
     providerService4.category = "Sciences";
     providerService4.serviceDesc = "Geography";
-    providerService4.price = "150";
+    providerService4.price = 150;
     providerService4.estTime = "60";
     providerService4.chargeType = "Per Hour";
     providerService4.checked = false;
@@ -272,7 +272,7 @@ class DummyData {
     providerService5.id = "5";
     providerService5.category = "Commerce";
     providerService5.serviceDesc = "Accounting";
-    providerService5.price = "200";
+    providerService5.price = 200;
     providerService5.estTime = "60";
     providerService5.chargeType = "Per Hour";
     providerService5.checked = false;
@@ -281,7 +281,7 @@ class DummyData {
     providerService6.id = "6";
     providerService6.category = "Commerce";
     providerService6.serviceDesc = "Business Studies";
-    providerService6.price = "150";
+    providerService6.price = 150;
     providerService6.estTime = "60";
     providerService6.chargeType = "Per Hour";
     providerService6.checked = false;
@@ -290,7 +290,7 @@ class DummyData {
     providerService7.id = "7";
     providerService7.category = "Commerce";
     providerService7.serviceDesc = "Economics";
-    providerService7.price = "150";
+    providerService7.price = 150;
     providerService7.estTime = "60";
     providerService7.chargeType = "Per Hour";
     providerService7.checked = false;
@@ -300,7 +300,7 @@ class DummyData {
     providerService8.id = "8";
     providerService8.category = "Histories";
     providerService8.serviceDesc = "History";
-    providerService8.price = "150";
+    providerService8.price = 150;
     providerService8.estTime = "60";
     providerService8.chargeType = "Per Hour";
     providerService8.checked = false;
