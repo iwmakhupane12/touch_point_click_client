@@ -171,7 +171,7 @@ class DummyData {
 
     electrician = "assets/images/categoryIcons/electrician.png";
     beauty = "assets/images/categoryIcons/beauty_parlour.png";
-    breakdown = "assets/images/categoryIcons/breakdown.jpeg";
+    breakdown = "assets/images/categoryIcons/breakdown.png";
     spa = "assets/images/categoryIcons/day_spa.png";
     domesticService = "assets/images/categoryIcons/domestic_services.png";
     gym = "assets/images/categoryIcons/fitness_specialists.png";

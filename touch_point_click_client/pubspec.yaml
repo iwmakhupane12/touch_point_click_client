@@ -42,6 +42,10 @@ dependencies:
   geolocator: ^7.0.1
   http: ^0.13.1
   google_maps_flutter: ^2.0.1
+  # Firebase
+  firebase_auth: ^1.0.2
+  cloud_firestore: ^1.0.4
+  firebase_storage: ^8.0.2
 
 dev_dependencies:
   flutter_test:
@@ -72,7 +76,7 @@ flutter:
   #Category images
     - assets/images/categoryIcons/beauty_parlour.png
     - assets/images/categoryIcons/electrician.png
-    - assets/images/categoryIcons/breakdown.jpeg
+    - assets/images/categoryIcons/breakdown.png
     - assets/images/categoryIcons/day_spa.png
     - assets/images/categoryIcons/domestic_services.png
     - assets/images/categoryIcons/fitness_specialists.png

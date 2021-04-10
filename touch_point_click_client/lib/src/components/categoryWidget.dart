@@ -57,7 +57,7 @@ class CategoryWidget extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 5.0),
           child: Container(
-            height: 100,
+            height: 110,
             width: 90,
             child: Column(
               children: <Widget>[
